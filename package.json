@@ -2,9 +2,9 @@
   "name": "web-scrapping-with-nodejs",
   "version": "1.0.0",
   "description": "A web scrapper for scraping the web with node.js",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
   },
   "author": "mythrex",
   "dependencies": {
