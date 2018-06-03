@@ -5,7 +5,24 @@ const request = require('request');
 const app = express();
 
 app.get('/scrape', function (req, res) {
-  console.log('Scraping');
+  url = 'https://www.imdb.com/title/tt1837492/'
+
+  //make request to url
+  request(url, function (error, res, html) {
+    if(!error){
+
+      //load the html into cherio
+      var $ = cheerio.load(html)
+      var title, release, rating;
+
+      var json = {
+        title: "",
+        release: "",
+        rating: ""
+      }
+      
+    }
+  })
 })
 
 app.listen(8081)
