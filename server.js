@@ -17,10 +17,16 @@ app.get('/scrape', function (req, res) {
 
       var json = {
         title: "",
-        release: "",
         rating: ""
       }
-      
+
+      // traverse to the point for title
+      title = $('.titleBar > .title_wrapper > h1').text()
+      json.title = title
+
+      rating = $('.imdbRating > .ratingValue > strong > span').text()
+      json.rating = rating
+      console.log(json);
     }
   })
 })
