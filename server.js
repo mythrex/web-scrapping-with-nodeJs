@@ -8,7 +8,7 @@ app.get('/scrape', function (req, res) {
   url = 'https://www.imdb.com/title/tt1837492/'
 
   //make request to url
-  request(url, function (error, res, html) {
+  request(url, function (error, response, html) {
     if(!error){
 
       //load the html into cherio
@@ -27,6 +27,13 @@ app.get('/scrape', function (req, res) {
       rating = $('.imdbRating > .ratingValue > strong > span').text()
       json.rating = rating
       console.log(json);
+
+      //write to a file
+      fs.writeFile('output.json', JSON.stringify(json),function (error) {
+        if(error) console.error(error);
+        console.log('Data written to output.json')
+      })
+      res.send('Check your console!')
     }
   })
 })
